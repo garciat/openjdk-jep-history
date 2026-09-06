@@ -681,6 +681,7 @@
     "https://cdn.jsdelivr.net/gh/garciat/deno-static@0.1.2/mod.ts": "23a583d9320e4ddc51ea5e31e9915dad18030695b4b304986e8c184f6d820c98",
     "https://cdn.jsdelivr.net/gh/garciat/deno-static@0.1.4/mod.ts": "909d7b7a947192bf8328b034753cde7eab2c88cb3116fd8ab7f88e473aaedcd1",
     "https://cdn.jsdelivr.net/gh/garciat/deno-static@0.1.5/mod.ts": "c7b284d59b80cc3ff3040713dc45f01c5c008feb78a1decef3e17b2df9d6576a",
+    "https://cdn.jsdelivr.net/gh/garciat/deno-static@0.1.9/mod.ts": "fb9f7468555ae6c22969111911ec06f851ddb5f53ef393898aee090b009e7fae",
     "https://cdn.jsdelivr.net/gh/garciat/deno-static@v0.1.0/lib/mod.ts": "081790ff1afa59579710f68568016a1c57b1908f54e0acc2b416a1fc5acbd5f8",
     "https://cdn.jsdelivr.net/gh/garciat/deno-static@v0.1.1/mod.ts": "eae6f8b72b5e21f38e632817643ae54d8d0f89f6ab9ea1bd6d136e92f1509b24"
   },
