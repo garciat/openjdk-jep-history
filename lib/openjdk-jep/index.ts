@@ -41,7 +41,7 @@ export function* computeStateDelta(
   }
 }
 
-export async function fetchJepIndex(): Promise<string> {
+export async function fetchJepIndex(): Promise<JepIndex> {
   const res = await fetch(JEP_INDEX_URL, {
     headers: {
       "user-agent": "curl/8.14.1",
@@ -52,10 +52,10 @@ export async function fetchJepIndex(): Promise<string> {
     throw new Error(`failed to fetch: ${res.status} ${res.statusText}`);
   }
 
-  return await res.text();
+  return parseJepIndex(await res.text());
 }
 
-export function parseJepIndex(source: string): JepIndex {
+function parseJepIndex(source: string): JepIndex {
   const doc = HTML.parse(source);
 
   const metadata = parseJepIndexMetadata(parseJepPageMetadata(doc));

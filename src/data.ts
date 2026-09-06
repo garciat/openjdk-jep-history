@@ -1,20 +1,14 @@
 import { JepIndexSchema } from "@/lib/openjdk-jep/types.ts";
-import {
-  computeStateDelta,
-  fetchJepIndex,
-  parseJepIndex,
-} from "@/lib/openjdk-jep/index.ts";
+import { computeStateDelta, fetchJepIndex } from "@/lib/openjdk-jep/index.ts";
 import { withTimeTag } from "@/lib/timed.ts";
 
 import { SiteConfig } from "./config.ts";
 import { JepHistorySchema } from "./types.ts";
 
 export async function fetchAll() {
-  const currentIndex = parseJepIndex(
-    await withTimeTag(
-      fetchJepIndex(),
-      (tag) => console.log(`[fetch]`, `OpenJDK JEP index`, `(${tag})`),
-    ),
+  const currentIndex = await withTimeTag(
+    fetchJepIndex(),
+    (tag) => console.log(`[fetch]`, `OpenJDK JEP index`, `(${tag})`),
   );
 
   const storedIndex = await withTimeTag(
