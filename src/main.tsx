@@ -1,4 +1,4 @@
-import { file, index, json, jsx, site } from "deno-static/mod.ts";
+import { index, json, jsx, response, site } from "deno-static/mod.ts";
 
 import { JepIndexSchema } from "@/lib/openjdk-jep/types.ts";
 
@@ -13,7 +13,9 @@ const { currentIndex, history } = await fetchAll();
 
 await site(() => ({
   [index]: jsx(<HomePage index={currentIndex} />),
-  [SiteConfig.feedPath]: file(buildFeed(history)),
+
+  [SiteConfig.feedPath]: response(buildFeed(history)),
+
   [SiteConfig.storedHistoryPath]: json(JepHistorySchema.encode(history)),
   [SiteConfig.storedIndexPath]: json(JepIndexSchema.encode(currentIndex)),
 }));

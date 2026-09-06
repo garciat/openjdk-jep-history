@@ -1,7 +1,7 @@
 {
   "imports": {
     "@/lib/": "./lib/",
-    "deno-static/": "https://cdn.jsdelivr.net/gh/garciat/deno-static@0.1.5/",
+    "deno-static/": "https://cdn.jsdelivr.net/gh/garciat/deno-static@0.1.9/",
     "@std/xml": "jsr:@std/xml@^0.2.0",
     "@zod/zod": "jsr:@zod/zod@^4.4.3"
   },
