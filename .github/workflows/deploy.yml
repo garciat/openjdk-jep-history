@@ -7,6 +7,12 @@ on:
   schedule:
     - cron: "5 * * * *"
   workflow_dispatch:
+    inputs:
+      skip:
+        description: "Skip processing?"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -40,8 +46,8 @@ jobs:
       - name: Build site
         env:
           BASE_URL: ${{ steps.setup-pages.outputs.base_url }}
-        run: |
-          BASE_URL="$BASE_URL" deno task build
+          ACTION_SKIP: ${{ inputs.skip }}
+        run: deno task build
 
       - name: Upload artifact
         if: github.event_name != 'pull_request'
