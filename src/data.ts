@@ -5,6 +5,8 @@ import { withTimeTag } from "@/lib/timed.ts";
 import { SiteConfig } from "./config.ts";
 import { JepHistorySchema } from "./types.ts";
 
+const SKIP = Deno.env.get("ACTION_SKIP") === "true";
+
 export async function fetchAll() {
   const currentIndex = await withTimeTag(
     fetchJepIndex(),
@@ -51,6 +53,11 @@ async function fetchStoredHistory() {
 }
 
 async function fetchStoredIndex() {
+  if (SKIP) {
+    console.log(`[fetch]`, "ACTION_SKIP=true, skipping this run's delta");
+    return undefined;
+  }
+
   const res = await fetch(
     new URL(SiteConfig.storedIndexPath, SiteConfig.baseUrl),
   );
